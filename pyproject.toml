@@ -1,0 +1,21 @@
+[project]
+name = "reflex-lab"
+version = "0.1.0"
+description = "Test bench for APUS Reflex 9B with a local question-to-request translator"
+readme = "README.md"
+authors = [
+    { name = "Tue R. L. Christensen" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "gradio>=6.30.0",
+    "huggingface-hub>=2.2.0",
+    "mlx-lm>=0.32.2",
+]
+
+[project.scripts]
+reflex-lab = "reflex_lab:main"
+
+[build-system]
+requires = ["uv_build>=0.11.24,<0.12.0"]
+build-backend = "uv_build"
