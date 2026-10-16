@@ -3,6 +3,8 @@ name = "reflex-lab"
 version = "0.1.0"
 description = "Test bench for APUS Reflex 9B with a local question-to-request translator"
 readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 authors = [
     { name = "Tue R. L. Christensen" }
 ]
