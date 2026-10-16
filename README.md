@@ -42,7 +42,9 @@ Reflex answers **Canberra**, with a probability for every candidate.
 
 ## Requirements
 
-- Apple Silicon Mac with at least 16 GB unified memory. Both models together use about 10 GB.
+- **macOS on Apple Silicon (M1 or later).** MLX doesn't run on Intel Macs, Linux or Windows, so neither model can load there.
+- At least 16 GB of unified memory. Both models together use about 10 GB, so 16 GB works but leaves little room for other apps.
+- Python 3.12 or newer. uv installs it automatically if it's missing.
 - [uv](https://docs.astral.sh/uv/)
 - About 8 GB of disk for the weights, downloaded into `~/.cache/huggingface` on first run.
 
