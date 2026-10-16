@@ -1,0 +1,22 @@
+{
+  "model": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+  "mode": "turns",
+  "prompt": "Pick a random number from 1 to 10. Reply with only the number.",
+  "n_requested": 1000,
+  "n_parsed": 1000,
+  "temperature": 1.0,
+  "seed": 0,
+  "counts": {
+    "1": 109,
+    "2": 111,
+    "3": 112,
+    "4": 111,
+    "5": 109,
+    "6": 111,
+    "7": 112,
+    "8": 110,
+    "9": 111,
+    "10": 4
+  },
+  "share_7": 0.112
+}

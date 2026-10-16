@@ -1,0 +1,21 @@
+{
+  "model": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+  "mode": "list",
+  "prompt": "Pick 1000 random numbers from 1 to 10. Reply with only the numbers, separated by commas.",
+  "n_requested": 1000,
+  "n_parsed": 2025,
+  "temperature": 1.0,
+  "seed": 0,
+  "counts": {
+    "1": 238,
+    "2": 238,
+    "3": 238,
+    "4": 238,
+    "5": 238,
+    "6": 121,
+    "7": 238,
+    "8": 238,
+    "9": 238
+  },
+  "share_7": 0.11753086419753087
+}

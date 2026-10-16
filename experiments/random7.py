@@ -6,6 +6,7 @@
    "picks 7 more than x% of the time" for x = 0..50.
 
 Run:  uv run python experiments/random7.py
+      TRANSLATOR_MODEL=<hf repo> uv run python experiments/random7.py --skip-reflex
 Writes: experiments/results/random7-<timestamp>/
 """
 
@@ -23,7 +24,7 @@ from mlx_lm.sample_utils import make_sampler
 
 from reflex_lab.contracts import BINARY_CRITERIA, render_prompt
 from reflex_lab.reflex import Reflex
-from reflex_lab.translator import Translator
+from reflex_lab.translator import TRANSLATOR_MODEL, Translator
 
 LLM_PROMPT = "Pick a random number from 1 to 10. Reply with only the number."
 LLM_STATE = "A language model is asked to pick a random number from 1 to 10."
@@ -110,6 +111,7 @@ def main():
     parser.add_argument("--n", type=int, default=1000)
     parser.add_argument("--temp", type=float, default=1.0)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--skip-reflex", action="store_true", help="only sample the LLM")
     args = parser.parse_args()
 
     out_dir = Path(__file__).parent / "results" / time.strftime("random7-%Y%m%d-%H%M%S")
@@ -120,12 +122,14 @@ def main():
     counts = collections.Counter(r["parsed"] for r in rows)
     share_7 = counts[7] / args.n
 
-    print("Reflex:")
-    results = ask_reflex(reflex_requests(range(0, 51)), out_dir)
+    results = []
+    if not args.skip_reflex:
+        print("Reflex:")
+        results = ask_reflex(reflex_requests(range(0, 51)), out_dir)
 
     summary = {
         "llm": {
-            "model": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+            "model": TRANSLATOR_MODEL,
             "prompt": LLM_PROMPT,
             "n": args.n,
             "temperature": args.temp,
